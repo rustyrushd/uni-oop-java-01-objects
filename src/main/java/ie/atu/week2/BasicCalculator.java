@@ -15,5 +15,13 @@ public class BasicCalculator
         double secondNumber = scan1.nextDouble();
         System.out.println("You entered " + secondNumber);
         scan1.close();
+
+        System.out.println(firstNumber + " + " + secondNumber + " = " + add(firstNumber, secondNumber));
+    }
+
+    // add two numbers
+    static double add(double firstNum, double secondNum)
+    {
+        return firstNum + secondNum;
     }
 }
