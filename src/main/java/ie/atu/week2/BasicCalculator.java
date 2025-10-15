@@ -1,4 +1,19 @@
 package ie.atu.week2;
 
-public class BasicCalculator {
+import java.util.Scanner;
+
+public class BasicCalculator
+{
+    public static void main(String[] args)
+    {
+        Scanner scan1 = new Scanner(System.in);
+        System.out.println("Please enter the first number: ");
+        double firstNumber = scan1.nextDouble();
+        System.out.println("You entered " + firstNumber);
+
+        System.out.println("Please enter the second number: ");
+        double secondNumber = scan1.nextDouble();
+        System.out.println("You entered " + secondNumber);
+        scan1.close();
+    }
 }
