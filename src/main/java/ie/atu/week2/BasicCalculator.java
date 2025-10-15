@@ -17,11 +17,18 @@ public class BasicCalculator
         scan1.close();
 
         System.out.println(firstNumber + " + " + secondNumber + " = " + add(firstNumber, secondNumber));
+        System.out.println(firstNumber + " - " + secondNumber + " = " + sub(firstNumber, secondNumber));
     }
 
     // add two numbers
     static double add(double firstNum, double secondNum)
     {
         return firstNum + secondNum;
+    }
+
+    // subtract two numbers
+    static double sub(double firstNum, double secondNum)
+    {
+        return firstNum - secondNum;
     }
 }
