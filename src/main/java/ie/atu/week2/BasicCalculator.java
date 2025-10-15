@@ -18,6 +18,7 @@ public class BasicCalculator
 
         System.out.println(firstNumber + " + " + secondNumber + " = " + add(firstNumber, secondNumber));
         System.out.println(firstNumber + " - " + secondNumber + " = " + sub(firstNumber, secondNumber));
+        System.out.println(firstNumber + " * " + secondNumber + " = " + mul(firstNumber, secondNumber));
     }
 
     // add two numbers
@@ -30,5 +31,11 @@ public class BasicCalculator
     static double sub(double firstNum, double secondNum)
     {
         return firstNum - secondNum;
+    }
+
+    // multiply two numbers
+    static double mul(double firstNum, double secondNum)
+    {
+        return firstNum * secondNum;
     }
 }
