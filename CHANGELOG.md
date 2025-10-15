@@ -10,11 +10,12 @@
 
 ### Added
 
-- SWE: Features created in separate methods on separate branches, committed, pushed and merged:
+- Features:
   - Read and print two numbers
   - Addition feature
   - Subtraction feature
   - Multiplication feature
   - Division feature
   - Some error correction
+- SWE: Features created in separate methods on separate branches, committed, pushed and merged
 - Documentation as per internal programming style guide
