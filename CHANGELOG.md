@@ -16,6 +16,8 @@
   - Subtraction feature
   - Multiplication feature
   - Division feature
-  - Some error correction
-- SWE: Features created in separate methods on separate branches, committed, pushed and merged
-- Documentation as per internal programming style guide
+  - Some error correction  
+
+- SWE: 
+  - Features created in separate methods on separate branches, committed, pushed and merged
+  - Documentation as per internal programming style guide
