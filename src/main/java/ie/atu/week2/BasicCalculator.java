@@ -1,3 +1,13 @@
+/*
+ * This class is a simple calculator that reads two numbers and a choice of operation from the user and prints the
+ * result. The operations are addition, subtraction, multiplication and division. Simple but incomplete error correction
+ * it present.
+ *
+ * Author: rgm
+ *
+ * [1.0.0] 2025-10-15
+ */
+
 package ie.atu.week2;
 
 import java.util.Scanner;
