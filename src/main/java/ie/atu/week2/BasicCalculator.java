@@ -14,12 +14,39 @@ public class BasicCalculator
         System.out.println("Please enter the second number: ");
         double secondNumber = scan1.nextDouble();
         System.out.println("You entered " + secondNumber);
+
+        System.out.println("Would you like to add (enter \"+\"), subtract (enter \"-\"), multiply (enter \"*\") " +
+                "or divide (enter \"/\") these two numbers?");
+        String operation = scan1.next();
         scan1.close();
 
-        System.out.println(firstNumber + " + " + secondNumber + " = " + add(firstNumber, secondNumber));
-        System.out.println(firstNumber + " - " + secondNumber + " = " + sub(firstNumber, secondNumber));
-        System.out.println(firstNumber + " * " + secondNumber + " = " + mul(firstNumber, secondNumber));
-        System.out.println(firstNumber + " / " + secondNumber + " = " + div(firstNumber, secondNumber));
+        double result = 0;
+
+        switch (operation) {
+            case "+":
+                result = add(firstNumber, secondNumber);
+                break;
+            case "-":
+                result = sub(firstNumber, secondNumber);
+                break;
+            case "*":
+                result = mul(firstNumber, secondNumber);
+                break;
+            case "/":
+                if (secondNumber == 0) {
+                    System.out.println("To infinity and beyond, as the second number = 0!");
+                }
+                else {
+                    result = div(firstNumber, secondNumber);
+                }
+                break;
+            default:
+                System.out.println("Invalid operation selected, please type \"+\" to add, \"-\" to subtract, \"*\" " +
+                        "to multiply or \"/\" to divide next time.");
+        }
+        System.out.println(firstNumber + " " + operation + " " + secondNumber + " = " + result);
+
+        System.out.println("\nThanks for using, have a nice day!");
     }
 
     // add two numbers
