@@ -1,7 +1,7 @@
 /*
- * This class is a simple calculator that reads two numbers and a choice of operation from the user and prints the
+ * This class is a simple calculator that reads two numbers and a choice of operation from the user. It then prints the
  * result. The operations are addition, subtraction, multiplication and division. Simple but incomplete error correction
- * it present.
+ * is present.
  *
  * Author: rgm
  *
