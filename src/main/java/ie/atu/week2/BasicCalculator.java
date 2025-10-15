@@ -1,11 +1,11 @@
 /*
  * This class is a simple calculator that reads two numbers and a choice of operation from the user. It then prints the
  * result. The operations are addition, subtraction, multiplication and division. Simple but incomplete error correction
- * is present.
+ * is included.
  *
  * Author: rgm
  *
- * [1.0.0] 2025-10-15
+ * [1.0.1] 2025-10-15
  */
 
 package ie.atu.week2;
@@ -19,44 +19,50 @@ public class BasicCalculator
         Scanner scan1 = new Scanner(System.in);
         System.out.println("Please enter the first number: ");
         double firstNumber = scan1.nextDouble();
-        System.out.println("You entered " + firstNumber);
+        System.out.println("You entered " + firstNumber + "\n");
 
         System.out.println("Please enter the second number: ");
         double secondNumber = scan1.nextDouble();
-        System.out.println("You entered " + secondNumber);
+        System.out.println("You entered " + secondNumber + "\n");
 
         System.out.println("Would you like to add (enter \"+\"), subtract (enter \"-\"), multiply (enter \"*\") " +
                 "or divide (enter \"/\") these two numbers?");
-        String operation = scan1.next();
+        String choice = scan1.next();
         scan1.close();
 
+        operation(choice, firstNumber, secondNumber);
+
+        System.out.println("\nThanks for using, have a nice day!");
+    }
+
+    // selects operation for two passed numbers and prints result
+    static void operation (String choice, double firstNum, double secNum)
+    {
         double result = 0;
 
-        switch (operation) {
+        switch (choice) {
             case "+":
-                result = add(firstNumber, secondNumber);
+                result = add(firstNum, secNum);
                 break;
             case "-":
-                result = sub(firstNumber, secondNumber);
+                result = sub(firstNum, secNum);
                 break;
             case "*":
-                result = mul(firstNumber, secondNumber);
+                result = mul(firstNum, secNum);
                 break;
             case "/":
-                if (secondNumber == 0) {
+                if (secNum == 0) {
                     System.out.println("To infinity and beyond, as the second number = 0!");
                 }
                 else {
-                    result = div(firstNumber, secondNumber);
+                    result = div(firstNum, secNum);
                 }
                 break;
             default:
                 System.out.println("Invalid operation selected, please type \"+\" to add, \"-\" to subtract, \"*\" " +
                         "to multiply or \"/\" to divide next time.");
         }
-        System.out.println(firstNumber + " " + operation + " " + secondNumber + " = " + result);
-
-        System.out.println("\nThanks for using, have a nice day!");
+        System.out.println("\n" + firstNum + " " + choice + " " + secNum + " = " + result);
     }
 
     // add two numbers
