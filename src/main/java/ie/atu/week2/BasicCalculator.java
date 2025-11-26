@@ -21,47 +21,40 @@ public class BasicCalculator
         double firstNumber = scan1.nextDouble();
         System.out.println("You entered " + firstNumber + "\n");
 
-        System.out.println("Please enter the second number: ");
-        double secondNumber = scan1.nextDouble();
-        System.out.println("You entered " + secondNumber + "\n");
-
         System.out.println("Would you like to add (enter \"+\"), subtract (enter \"-\"), multiply (enter \"*\") " +
                 "or divide (enter \"/\") these two numbers?");
         String choice = scan1.next();
+
+        System.out.println("Please enter the second number: ");
+        double secondNumber = scan1.nextDouble();
+        System.out.println("You entered " + secondNumber + "\n");
         scan1.close();
 
         operation(choice, firstNumber, secondNumber);
-
         System.out.println("\nThanks for using, have a nice day!");
     }
 
     // selects operation for two passed numbers and prints result
     static void operation (String choice, double firstNum, double secNum)
     {
-        double result = 0;
-
-        switch (choice) {
-            case "+":
-                result = add(firstNum, secNum);
-                break;
-            case "-":
-                result = sub(firstNum, secNum);
-                break;
-            case "*":
-                result = mul(firstNum, secNum);
-                break;
-            case "/":
+        String result = switch (choice) {
+            case "+" -> Double.toString(add(firstNum, secNum));
+            case "-" -> Double.toString(sub(firstNum, secNum));
+            case "*" -> Double.toString(mul(firstNum, secNum));
+            case "/" -> {
                 if (secNum == 0) {
                     System.out.println("To infinity and beyond, as the second number = 0!");
+                    yield "\uD83D\uDE80";
+                } else {
+                    yield  Double.toString(div(firstNum, secNum));
                 }
-                else {
-                    result = div(firstNum, secNum);
-                }
-                break;
-            default:
+            }
+            default -> {
                 System.out.println("Invalid operation selected, please type \"+\" to add, \"-\" to subtract, \"*\" " +
                         "to multiply or \"/\" to divide next time.");
-        }
+                yield "\uD83E\uDD37???";
+            }
+        };
         System.out.println("\n" + firstNum + " " + choice + " " + secNum + " = " + result);
     }
 
