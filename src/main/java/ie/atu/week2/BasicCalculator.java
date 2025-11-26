@@ -10,6 +10,7 @@
 
 package ie.atu.week2;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BasicCalculator
@@ -18,19 +19,25 @@ public class BasicCalculator
     {
         Scanner scan1 = new Scanner(System.in);
         System.out.println("Please enter the first number: ");
-        double firstNumber = scan1.nextDouble();
-        System.out.println("You entered " + firstNumber + "\n");
+        try {
+            double firstNumber = scan1.nextDouble();
+            System.out.println("You entered " + firstNumber + "\n");
 
-        System.out.println("Would you like to add (enter \"+\"), subtract (enter \"-\"), multiply (enter \"*\") " +
-                "or divide (enter \"/\") these two numbers?");
-        String choice = scan1.next();
+            System.out.println("Would you like to add (enter \"+\"), subtract (enter \"-\"), multiply (enter \"*\") " +
+                    "or divide (enter \"/\") these two numbers?");
+            String choice = scan1.next();
 
-        System.out.println("Please enter the second number: ");
-        double secondNumber = scan1.nextDouble();
-        System.out.println("You entered " + secondNumber + "\n");
-        scan1.close();
+            System.out.println("Please enter the second number: ");
+            double secondNumber = scan1.nextDouble();
+            System.out.println("You entered " + secondNumber + "\n");
 
-        operation(choice, firstNumber, secondNumber);
+            scan1.close();
+            operation(choice, firstNumber, secondNumber);
+        } catch (InputMismatchException e) {
+            System.err.println("Invalid input, please try again with a valid number like 1, 2, 3...\uD83E\uDEE0");
+        } catch (ArithmeticException e) {
+            System.err.println(e.getMessage());
+        }
         System.out.println("\nThanks for using, have a nice day!");
     }
 
@@ -43,14 +50,14 @@ public class BasicCalculator
             case "*" -> Double.toString(mul(firstNum, secNum));
             case "/" -> {
                 if (secNum == 0) {
-                    System.out.println("To infinity and beyond, as the second number = 0!");
-                    yield "\uD83D\uDE80";
+                    throw new ArithmeticException("Division by zero: To infinity and beyond, " +
+                            "as the second number = 0! " + "\uD83D\uDE80");
                 } else {
                     yield  Double.toString(div(firstNum, secNum));
                 }
             }
             default -> {
-                System.out.println("Invalid operation selected, please type \"+\" to add, \"-\" to subtract, \"*\" " +
+                System.err.println("Invalid operation selected, please type \"+\" to add, \"-\" to subtract, \"*\" " +
                         "to multiply or \"/\" to divide next time.");
                 yield "\uD83E\uDD37???";
             }
