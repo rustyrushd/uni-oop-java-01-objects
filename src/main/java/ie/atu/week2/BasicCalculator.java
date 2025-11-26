@@ -37,22 +37,22 @@ public class BasicCalculator
     // selects operation for two passed numbers and prints result
     static void operation (String choice, double firstNum, double secNum)
     {
-        double result = switch (choice) {
-            case "+" -> add(firstNum, secNum);
-            case "-" -> sub(firstNum, secNum);
-            case "*" -> mul(firstNum, secNum);
+        String result = switch (choice) {
+            case "+" -> Double.toString(add(firstNum, secNum));
+            case "-" -> Double.toString(sub(firstNum, secNum));
+            case "*" -> Double.toString(mul(firstNum, secNum));
             case "/" -> {
                 if (secNum == 0) {
                     System.out.println("To infinity and beyond, as the second number = 0!");
-                    yield 0;
+                    yield "\uD83D\uDE80";
                 } else {
-                    yield  div(firstNum, secNum);
+                    yield  Double.toString(div(firstNum, secNum));
                 }
             }
             default -> {
                 System.out.println("Invalid operation selected, please type \"+\" to add, \"-\" to subtract, \"*\" " +
                         "to multiply or \"/\" to divide next time.");
-                yield 0;
+                yield "\uD83E\uDD37???";
             }
         };
         System.out.println("\n" + firstNum + " " + choice + " " + secNum + " = " + result);
