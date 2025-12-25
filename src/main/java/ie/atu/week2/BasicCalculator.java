@@ -37,6 +37,8 @@ public class BasicCalculator
             System.err.println("Invalid input, please try again with a valid number like 1, 2, 3...\uD83E\uDEE0");
         } catch (ArithmeticException e) {
             System.err.println(e.getMessage());
+        } catch (IllegalArgumentException e) {
+          System.err.println(e.getMessage());
         }
         System.out.println("\nThanks for using, have a nice day!");
     }
@@ -57,9 +59,10 @@ public class BasicCalculator
                 }
             }
             default -> {
-                System.err.println("Invalid operation selected, please type \"+\" to add, \"-\" to subtract, \"*\" " +
+              result = "\uD83E\uDD37???";
+              System.err.println("Your expression:\n" + firstNum + " " + choice + " " + secNum + " = " + result);
+              throw new IllegalArgumentException("Invalid operation selected, please type \"+\" to add, \"-\" to subtract, \"*\" " +
                         "to multiply or \"/\" to divide next time.");
-                yield "\uD83E\uDD37???";
             }
         };
         System.out.println("\n" + firstNum + " " + choice + " " + secNum + " = " + result);
