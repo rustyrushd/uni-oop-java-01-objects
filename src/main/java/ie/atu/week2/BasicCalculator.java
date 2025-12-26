@@ -35,10 +35,8 @@ public class BasicCalculator
             operation(choice, firstNumber, secondNumber);
         } catch (InputMismatchException e) {
             System.err.println("Invalid input, please try again with a valid number like 1, 2, 3...\uD83E\uDEE0");
-        } catch (ArithmeticException e) {
+        } catch (ArithmeticException | IllegalArgumentException e) {
             System.err.println(e.getMessage());
-        } catch (IllegalArgumentException e) {
-          System.err.println(e.getMessage());
         }
         System.out.println("\nThanks for using, have a nice day!");
     }
