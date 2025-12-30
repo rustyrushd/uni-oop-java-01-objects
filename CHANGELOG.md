@@ -8,7 +8,8 @@
 
 ### Changed
 
-- Changed invalid operator input error handling from default case in switch to IllegalArgumentException in main()
+- Changed invalid operator input error handling from default case in switch to 
+IllegalArgumentException in main()
 - Google Java Style:
     - K&R style braces for class and methods
     - Block intent by 2 spaces
